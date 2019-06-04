@@ -2,6 +2,8 @@
 var pScore = 0;
 var cScore = 0;
 const resultContainer = document.querySelector("#results");
+const currentScore = document.querySelector("#currentScore");
+var gameOver = false;
 
 // Computer choice function
 function computerPlay() {
@@ -60,6 +62,15 @@ btnRock.addEventListener("click", function(e){
   resultOut = document.createElement("p");
   resultOut.textContent = result;
   resultContainer.appendChild(resultOut);
+  currentScore.textContent = "You - " + pScore + " || Computer - " + cScore;
+  if (pScore == 5 && gameOver == false) {
+    alert("You win!");
+    gameOver = true;
+  }
+  else if (cScore == 5 && gameOver == false) {
+    alert("You lose!");
+    gameOver = true;
+  }
 });
 
 const btnPaper = document.querySelector("#paper");
@@ -68,6 +79,15 @@ btnPaper.addEventListener("click", function(e){
   resultOut = document.createElement("p");
   resultOut.textContent = result;
   resultContainer.appendChild(resultOut);
+  currentScore.textContent = "You - " + pScore + " || Computer - " + cScore;
+  if (pScore == 5 && gameOver == false) {
+    alert("You win!");
+    gameOver = true;
+  }
+  else if (cScore == 5 && gameOver == false) {
+    alert("You lose!");
+    gameOver = true;
+  }
 });
 
 const btnScissors = document.querySelector("#scissors");
@@ -76,6 +96,15 @@ btnScissors.addEventListener("click", function(e){
   resultOut = document.createElement("p");
   resultOut.textContent = result;
   resultContainer.appendChild(resultOut);
+  currentScore.textContent = "You - " + pScore + " || Computer - " + cScore;
+  if (pScore == 5 && gameOver == false) {
+    alert("You win!");
+    gameOver = true;
+  }
+  else if (cScore == 5 && gameOver == false) {
+    alert("You lose!");
+    gameOver = true;
+  }
 });
 
 function game() {
