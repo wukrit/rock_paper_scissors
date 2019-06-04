@@ -1,5 +1,9 @@
+// Initilize Variables
 var pScore = 0;
 var cScore = 0;
+const resultContainer = document.querySelector("#results");
+
+// Computer choice function
 function computerPlay() {
   var choice;
   let x = Math.floor((Math.random() * 3) + 1);
@@ -13,7 +17,9 @@ function computerPlay() {
     choice = "SCISSORS";
   }
   return choice
-}
+};
+
+// Play round function, checks and outputs result
 function playRound(player, computer) {
   if (player.toUpperCase() != "ROCK" && player.toUpperCase() != "PAPER" && player.toUpperCase() != "SCISSORS") {
     return "You did not enter a proper value. \nPick ROCK, PAPER, or SCISSORS";
@@ -45,12 +51,37 @@ function playRound(player, computer) {
   else {
     return "It was a tie! The score is: You " + pScore + " || Computer - " + cScore;
   }
-}
+};
+
+// Button event listeners
+const btnRock = document.querySelector("#rock");
+btnRock.addEventListener("click", function(e){
+  let result = playRound("rock", computerPlay());
+  resultOut = document.createElement("p");
+  resultOut.textContent = result;
+  resultContainer.appendChild(resultOut);
+});
+
+const btnPaper = document.querySelector("#paper");
+btnPaper.addEventListener("click", function(e){
+  let result = playRound("paper", computerPlay());
+  resultOut = document.createElement("p");
+  resultOut.textContent = result;
+  resultContainer.appendChild(resultOut);
+});
+
+const btnScissors = document.querySelector("#scissors");
+btnScissors.addEventListener("click", function(e){
+  let result = playRound("scissors", computerPlay());
+  resultOut = document.createElement("p");
+  resultOut.textContent = result;
+  resultContainer.appendChild(resultOut);
+});
 
 function game() {
   for (let i = 1; i <= 5; i ++) {
     var player = prompt();
     console.log(playRound(player, computerPlay()));
   }
-}
-game();
+};
+// game();
