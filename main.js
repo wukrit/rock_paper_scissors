@@ -106,11 +106,3 @@ btnScissors.addEventListener("click", function(e){
     gameOver = true;
   }
 });
-
-function game() {
-  for (let i = 1; i <= 5; i ++) {
-    var player = prompt();
-    console.log(playRound(player, computerPlay()));
-  }
-};
-// game();
